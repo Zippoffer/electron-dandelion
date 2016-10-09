@@ -19,5 +19,8 @@
   "homepage": "https://github.com/tkswann2/electron-dandelion#readme",
   "devDependencies": {
     "electron": "^1.4.3"
+  },
+  "dependencies": {
+    "bower": "^1.7.9"
   }
 }
