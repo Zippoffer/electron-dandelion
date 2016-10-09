@@ -1,7 +1,17 @@
-// This file is required by the index.html file and will
-// be executed in the renderer process for that window.
-// All of the Node.js APIs are available in this process.
-const button = document.createElement('button')
-button.textContent = 'hello world'
-button.className = 'btn'
-document.body.appendChild(button)
+'use strict'
+
+const token  = require('./key')
+
+
+const button = document.querySelector('#button')
+const input = document.querySelector('#input')
+
+button.addEventListener('click', function() {
+  let url = input.value
+  let test = new XMLHttpRequest()
+  test.open('GET', `https://api.dandelion.eu/datatxt/nex/v1/?url=${url}&include=types%2Cabstract%2Ccategories&token=${token}`)
+  test.send()
+  test.addEventListener('load', function() {
+    console.log(this.responseText)
+  })
+})
